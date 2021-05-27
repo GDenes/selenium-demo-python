@@ -26,5 +26,4 @@ class UploadAndDownloadPage(AbstractPage):
     def get_file_path_text(self):
         return WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.filePathLocator))).text
-        # return element.text
 
