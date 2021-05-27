@@ -1,5 +1,3 @@
-import unittest
-
 from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
 
 
