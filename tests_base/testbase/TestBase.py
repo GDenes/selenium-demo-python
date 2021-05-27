@@ -10,6 +10,7 @@ class TestBase(unittest.TestCase):
 
     def setUp(self):
         self.driver = DriverFactory().create_driver(self.browser)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def get_driver(self):

@@ -1,9 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote import webelement
 
 from pages_base.pageobjects.AbstractPage import AbstractPage
 from pages_demoqa.pageobjects.dynamicpropertiespage.DynamicPropertiesPage import DynamicPropertiesPage
+from pages_demoqa.pageobjects.uploadanddownloadpage.UploadAndDownloadPage import UploadAndDownloadPage
 from utils.enums.BrowserEnum import BrowserEnum
 
 
@@ -22,3 +22,7 @@ class ElementsPage(AbstractPage):
     def navigate_to_dynamic_properties_page(self):
         self.dynamicProperties.click()
         return DynamicPropertiesPage(self.driver, self.browser)
+
+    def navigate_to_upload_and_download_page(self):
+        self.uploadAndDownload.click()
+        return UploadAndDownloadPage(self.driver, self.browser)

@@ -1,5 +1,3 @@
-import unittest
-
 from pages_demoqa.pageobjects.NavigationPage import NavigationPage
 from tests_base.testbase.TestBase import TestBase
 
