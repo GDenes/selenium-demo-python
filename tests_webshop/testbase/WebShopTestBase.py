@@ -11,5 +11,5 @@ class WebShopTestBase(TestBase):
         super().get_driver().get(self.BASE_URL)
         return HomePage(self.get_driver(), self.get_browser())
 
-    def get_navigation_bar(self):
+    def get_navigation_bar(self) -> NavigationBar:
         return NavigationBar(self.driver, self.browser)
