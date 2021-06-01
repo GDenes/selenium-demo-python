@@ -13,5 +13,5 @@ class WaitForElementToAppear:
 
     def apply(self, element: WebElement):
         wait = WebDriverWait(self.driver, self.BASIC_WAIT)
-        return wait.until(expected_conditions.presence_of_element_located(element))
+        return wait.until(expected_conditions.visibility_of_element_located(element))
 

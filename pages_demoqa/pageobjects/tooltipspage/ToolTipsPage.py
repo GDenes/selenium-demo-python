@@ -11,7 +11,7 @@ from utils.enums.BrowserEnum import BrowserEnum
 
 class ToolTipsPage(AbstractPage):
     IMPLICIT_WAIT = 5
-    PAUSE = 0.5;
+    PAUSE = 0.5
 
     toolTipButtonLocator = '#toolTipButton'
     toolTipButton = None

@@ -4,6 +4,8 @@ from utils.enums.BrowserEnum import BrowserEnum
 
 
 class AbstractPage:
+    IMPLICIT_WAIT = 20
+
     driver: webdriver
     browser: BrowserEnum
 
