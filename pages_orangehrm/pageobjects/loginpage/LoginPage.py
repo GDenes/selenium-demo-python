@@ -28,7 +28,7 @@ class LoginPage(AbstractPage):
         self.usernameInputField.send_keys(userEnum.user_name)
         self.passwordInputField.send_keys(userEnum.password)
         self.loginButton.click()
-        return DashboardPage(self.driver, self.browser)
+        return DashboardPage(self.driver, self.browser, userEnum)
 
     def clear_input_field(self):
         self.usernameInputField.clear()
