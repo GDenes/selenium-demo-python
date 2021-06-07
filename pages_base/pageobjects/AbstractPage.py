@@ -1,3 +1,4 @@
+import logging
 from abc import ABC
 
 from selenium import webdriver
@@ -6,7 +7,7 @@ from utils.enums.BrowserEnum import BrowserEnum
 
 
 class AbstractPage(ABC):
-    IMPLICIT_WAIT = 20
+    IMPLICIT_WAIT = 30
 
     driver: webdriver
     browser: BrowserEnum
