@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -30,12 +31,14 @@ class NavigationBar(AbstractPage):
         self.dressButton = driver.find_element(By.CSS_SELECTOR, self.dressButtonLocator)
         self.searchField = driver.find_element(By.CSS_SELECTOR, self.searchFieldLocator)
 
+    @allure.step("Fill input field with {searchText}")
     def fill_input_field_and_search(self, searchText):
         self.searchField.send_keys(searchText)
         self.searchField.send_keys(Keys.ENTER)
 
         return SearchPage(self.driver, self.browser)
 
+    @allure.step("Move cursor to `Women button` and click to popup")
     def hover_and_click_t_shirt_button(self):
         action = ActionChains(self.driver)
         action.move_to_element(self.womenButton).perform()

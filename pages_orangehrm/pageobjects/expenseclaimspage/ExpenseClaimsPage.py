@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -27,8 +28,10 @@ class ExpenseClaimsPage(AbstractOrangeHrmPage):
         self.totalListElementInCurrentPage = driver.find_element(By.CSS_SELECTOR,
                                                                  self.totalListElementInCurrentPageLocator)
 
+    @allure.step("Get all row from table")
     def get_table_result_rows(self):
         return self.tableResultRows
 
+    @allure.step("Get total list element from table")
     def get_total_list_element_in_current_page(self):
         return self.totalListElementInCurrentPage.text

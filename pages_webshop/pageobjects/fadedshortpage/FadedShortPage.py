@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -33,17 +34,21 @@ class FadedShortPage(GeneralWebShopPage):
         self.blueColor = driver.find_element(By.CSS_SELECTOR, self.blueColorLocator)
         self.orangeColor = driver.find_element(By.CSS_SELECTOR, self.orangeColorLocator)
 
+    @allure.step("Increase quantity number with one")
     def increase_quantity_number(self):
         self.increaseQuantityButton.click()
 
+    @allure.step("Select {sizeText} size")
     def select_size(self, size: SizeEnum):
         select = Select(self.sizeInputField)
         select.select_by_visible_text(size.value)
 
+    @allure.step("Click to add chart button")
     def click_add_cart_button(self):
         self.addToCartButton.click()
         return AddCartDialogBox(self.driver, self.browser)
 
+    @allure.step("Select {color} color with click")
     def select_color(self, color: ColorEnum):
         if color.value == ColorEnum.BLUE.value:
             self.blueColor.click()

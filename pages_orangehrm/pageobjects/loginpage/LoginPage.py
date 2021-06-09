@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -23,6 +24,7 @@ class LoginPage(AbstractPage):
         self.passwordInputField = driver.find_element(By.ID, self.passwordInputFieldLocator)
         self.loginButton = driver.find_element(By.ID, self.loginButtonLocator)
 
+    @allure.step("Login to page {userEnum}")
     def login(self, userEnum: UserEnum):
         self.clear_input_field()
         self.usernameInputField.send_keys(userEnum.user_name)

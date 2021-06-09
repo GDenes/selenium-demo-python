@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -20,6 +21,7 @@ class QuickViewDialogBox(AbstractPage):
         super().__init__(driver, browser)
         self.iframe = driver.find_element(By.CSS_SELECTOR, self.iframeLocator)
 
+    @allure.step("Get short description of product")
     def get_description_text(self):
         self.driver.switch_to.frame(self.iframe)
 

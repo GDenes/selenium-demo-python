@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -27,12 +28,15 @@ class AddCartDialogBox(GeneralWebShopPage):
         self.proceedToCheckoutButton = driver.find_element(By.CSS_SELECTOR, self.proceedToCheckoutButtonLocator)
         self.colorAndSize = driver.find_element(By.CSS_SELECTOR, self.colorAndSizeLocator)
 
+    @allure.step("Get title of product")
     def get_product_title_text(self):
         return self.productTitle.text
 
+    @allure.step("Get color and size of product")
     def get_color_and_size_text(self):
         return self.colorAndSize.text
 
+    @allure.step("Click to `Proceed to checkout` button")
     def click_proceed_to_checkout_button(self):
         self.proceedToCheckoutButton.click();
         return OrderPage(self.driver, self.browser)

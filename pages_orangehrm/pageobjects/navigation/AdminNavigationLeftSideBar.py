@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -34,6 +35,7 @@ class AdminNavigationLeftSideBar(AbstractNavigationLeftSideBar):
         # elif pageEnum == PageEnum.EXPENSE_CLAIMS_PAGE:
         #     return self.navigate_to_expense_claims_page()
 
+    @allure.step("Navigate to `User page`")
     def navigate_to_user_page(self):
         self.click_to_admin_item()
         self.click_to_user_management_item()

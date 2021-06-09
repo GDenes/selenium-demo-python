@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -24,6 +25,7 @@ class WidgetPage(AbstractPage):
         super().__init__(driver, browser)
         self.body = driver.find_element(By.CSS_SELECTOR, self.bodyLocator)
 
+    @allure.step("Go to `Tool Tips page`")
     def navigate_to_tool_tips_page(self):
         self.body.send_keys(Keys.PAGE_DOWN)
         WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(

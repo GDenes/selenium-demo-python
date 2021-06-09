@@ -1,4 +1,5 @@
 import unittest
+
 from selenium import webdriver
 from tests_base.driverfactory.DriverFactory import DriverFactory
 from utils.enums.BrowserEnum import BrowserEnum

@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -17,6 +19,7 @@ class TShirtPage(GeneralWebShopPage):
 
     @allure.step("Click to `Faded short item`")
     def click_faded_short_item(self):
+        logging.info("`Clicking to `Faded short item`")
         self.fadedShortItem.click()
 
         return FadedShortPage(self.driver, self.browser)

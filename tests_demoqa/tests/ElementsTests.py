@@ -1,12 +1,17 @@
 import os
 
+import allure
+
 from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
 
 
+@allure.epic("Demo Qa tests")
 class ElementsTests(DemoQaTestBase):
     UPLOADED_FILE_PATH = "C:\\fakepath\\sampleFile.jpeg"
     LOCAL_FILE_PATH = "sampleFile.jpeg"
 
+    @allure.description("In this case, test dynamically changes on elements")
+    @allure.story("Dynamically elements change")
     def test_dynamic_property(self):
         navigation_page = super().navigate_to_tools_qa_page()
         elements_page = navigation_page.navigate_to_elements_page()
@@ -16,6 +21,8 @@ class ElementsTests(DemoQaTestBase):
         self.assertTrue(dynamic_properties_page.color_changed_button(), 'The color of the button text has not changed')
         self.assertTrue(dynamic_properties_page.visible_button(), 'The button is not visible')
 
+    @allure.story("Testing upload")
+    @allure.description("In this case, test dynamical change elements")
     def test_upload(self):
         navigation_page = super().navigate_to_tools_qa_page()
         elements_page = navigation_page.navigate_to_elements_page()

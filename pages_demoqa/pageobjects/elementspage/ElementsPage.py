@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -19,10 +20,12 @@ class ElementsPage(AbstractPage):
         self.dynamicProperties = driver.find_element(By.XPATH, self.dynamicPropertiesLocator)
         self.uploadAndDownload = driver.find_element(By.XPATH, self.uploadAndDownloadLocator)
 
+    @allure.step("Go to `Dynamic Properties page`")
     def navigate_to_dynamic_properties_page(self):
         self.dynamicProperties.click()
         return DynamicPropertiesPage(self.driver, self.browser)
 
+    @allure.step("Go to `Upload and download page`")
     def navigate_to_upload_and_download_page(self):
         self.uploadAndDownload.click()
         return UploadAndDownloadPage(self.driver, self.browser)

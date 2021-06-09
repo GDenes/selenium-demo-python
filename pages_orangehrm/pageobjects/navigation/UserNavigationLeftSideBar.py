@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -20,10 +21,12 @@ class UserNavigationLeftSideBar(AbstractNavigationLeftSideBar):
         elif pageEnum == PageEnum.EXPENSE_CLAIMS_PAGE:
             return self.navigate_to_expense_claims_page()
 
+    @allure.step("Navigate to `My info page`")
     def navigate_to_my_info_page(self):
         self.myInfoMenuItem.click()
         from pages_orangehrm.pageobjects.myinfo.MyInfoPage import MyInfoPage
         return MyInfoPage.MyInfoPage(self.driver, self.browser, UserEnum.ESS_USER)
 
+    @allure.step("Navigate to `Expense claims page`")
     def navigate_to_expense_claims_page(self): # TODO implement method
         return self

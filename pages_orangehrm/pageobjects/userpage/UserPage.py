@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -37,9 +38,11 @@ class UserPage(AbstractOrangeHrmPage):
         self.userRowElements = driver.find_element(By.CSS_SELECTOR, self.userRowElementsLocator)
         self.firstRowInTable = driver.find_element(By.CSS_SELECTOR, self.firstRowInTableLocator)
 
+    @allure.step("Get user list table size")
     def get_user_list_size(self):
         return self.userListSize.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get all username from data table")
     def get_all_username(self):
         return self.userRowElements
 

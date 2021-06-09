@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -15,6 +16,7 @@ class InteractionPage(AbstractPage):
         super().__init__(driver, browser)
         self.droppableMenuItem = driver.find_element(By.XPATH, self.droppableMenuItemLocator)
 
+    @allure.step("Go to `Droppable page`")
     def get_droppable_page(self):
         self.droppableMenuItem.click()
         return DroppablePage(self.driver, self.browser)

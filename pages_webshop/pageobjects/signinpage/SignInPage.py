@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -25,8 +26,10 @@ class SignInPage(GeneralWebShopPage):
         self.signInButton = driver.find_element(By.CSS_SELECTOR, self.signInButtonLocator)
         self.currentStep = driver.find_element(By.CSS_SELECTOR, self.currentStepLocator)
 
+    @allure.step("Get head text of page")
     def get_head_text(self):
         return self.pageHead.text
 
+    @allure.step("Get current text of current step")
     def get_current_step_text(self):
         return self.currentStep.text

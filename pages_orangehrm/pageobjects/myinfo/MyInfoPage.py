@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -40,32 +41,42 @@ class MyInfoPage(AbstractOrangeHrmPage):
         self.driverLicenseNoField = driver.find_element(By.CSS_SELECTOR, self.driverLicenseNoFieldLocator)
         self.driverLicenseExpDateField = driver.find_element(By.CSS_SELECTOR, self.driverLicenseExpDateFieldLocator)
 
+    @allure.step("Get fistname value")
     def get_first_name_field_value(self):
         return self.firstNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get middlename value")
     def get_middle_name_value(self):
         return self.middleNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get lastname value")
     def get_last_name_value(self):
         return self.lastNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get employee id value")
     def get_employee_id_value(self):
         return self.employeeIdField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get employee id value")
     def get_other_id_value(self):
         return self.otherId.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get birthday value")
     def get_employee_birthday_value(self):
         return self.empBirthdayField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get marital status value")
     def get_marital_status_value(self):
         return self.empMaritalStatusField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get employee gender value")
     def get_employee_gender_value(self):
         return self.empGenderField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get nationality value")
     def get_nationality_code_value(self):
         return self.nationalityCodeInput.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
+    @allure.step("Get driver license value")
     def get_driver_license_exp_date_value(self):
         return self.driverLicenseExpDateField.get_attribute(self.GET_ATTRIBUTE_VALUE)

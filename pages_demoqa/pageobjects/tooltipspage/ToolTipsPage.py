@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -27,9 +28,11 @@ class ToolTipsPage(AbstractPage):
         self.toolTipButton = driver.find_element(By.CSS_SELECTOR, self.toolTipButtonLocator)
         self.toolTipTextField = driver.find_element(By.CSS_SELECTOR, self.toolTipTextFieldLocator)
 
+    @allure.step("Move cursor to button and get text of popup")
     def hover_tool_tip_button_and_get_text(self):
         return self.hover_web_element_get_tool_tip_text(self.toolTipButton)
 
+    @allure.step("Move cursor to text field and get text of popup")
     def hover_tool_tip_text_field_and_get_text(self):
         return self.hover_web_element_get_tool_tip_text(self.toolTipTextField)
 

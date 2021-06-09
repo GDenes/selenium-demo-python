@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -20,9 +21,11 @@ class UploadAndDownloadPage(AbstractPage):
         super().__init__(driver, browser)
         self.uploadFile = driver.find_element(By.CSS_SELECTOR, self.uploadFileLocator)
 
+    @allure.step("Upload file")
     def upload_sample_file(self, path):
         self.uploadFile.send_keys(path)
 
+    @allure.step("Get uploaded file path")
     def get_file_path_text(self):
         return WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.filePathLocator))).text
