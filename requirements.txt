@@ -1,2 +1,8 @@
 selenium==3.141.0
 webdriver-manager==3.4.2
+
+pip~=21.1.1
+configparser~=5.0.2
+py~=1.10.0
+setuptools~=56.0.0
+parameterized~=0.8.1
