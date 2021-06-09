@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -14,6 +15,7 @@ class TShirtPage(GeneralWebShopPage):
         super().__init__(driver, browser)
         self.fadedShortItem = driver.find_element(By.CSS_SELECTOR, self.fadedShortItemLocator)
 
+    @allure.step("Click to `Faded short item`")
     def click_faded_short_item(self):
         self.fadedShortItem.click()
 
