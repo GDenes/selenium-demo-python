@@ -1,7 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
@@ -11,7 +9,6 @@ from utils.enums.BrowserEnum import BrowserEnum
 
 class UserNavigationLeftSideBar(AbstractNavigationLeftSideBar):
     myInfoMenuItemLocator = '#menu_pim_viewMyDetails'
-    myInfoMenuItem: None
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
         super().__init__(driver, browser)
