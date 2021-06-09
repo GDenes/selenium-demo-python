@@ -38,5 +38,5 @@ class AddCartDialogBox(GeneralWebShopPage):
 
     @allure.step("Click to `Proceed to checkout` button")
     def click_proceed_to_checkout_button(self):
-        self.proceedToCheckoutButton.click();
+        self.proceedToCheckoutButton.click()
         return OrderPage(self.driver, self.browser)
