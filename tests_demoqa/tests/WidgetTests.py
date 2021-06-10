@@ -1,10 +1,16 @@
+import allure
+
 from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
 
 
+@allure.epic("Demo Qa tests")
+@allure.feature("Widget tests")
 class WidgetTests(DemoQaTestBase):
     BUTTON_TOOL_TIP_TEXT = "You hovered over the Button";
     TEXT_FIELD_TOOL_TIP_TEXT = "You hovered over the text field";
 
+    @allure.story("Tool tips")
+    @allure.description("In this case, test text field and button tool tips with hovering")
     def test_tool_tips(self):
         navigation_page = super().navigate_to_tools_qa_page()
         widgets_page = navigation_page.navigate_to_widget_page()

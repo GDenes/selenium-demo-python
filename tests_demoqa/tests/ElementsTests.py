@@ -6,6 +6,7 @@ from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
 
 
 @allure.epic("Demo Qa tests")
+@allure.feature("Elements tests")
 class ElementsTests(DemoQaTestBase):
     UPLOADED_FILE_PATH = "C:\\fakepath\\sampleFile.jpeg"
     LOCAL_FILE_PATH = "sampleFile.jpeg"

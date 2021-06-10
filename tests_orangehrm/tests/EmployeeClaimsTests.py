@@ -1,5 +1,7 @@
 from typing import cast
 
+import allure
+
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
 from pages_orangehrm.pageobjects.expenseclaimspage.ExpenseClaimsPage import ExpenseClaimsPage
@@ -9,6 +11,8 @@ from tests_orangehrm.testbase.OrangeHrmTestBase import OrangeHrmTestBase
 class EmployeeClaimsTests(OrangeHrmTestBase):
     EXPENSE_CLAIMS_ID_TAG_NAME = 'a'
 
+    @allure.story("Expense claims test")
+    @allure.description("In this case, test row numbers in table")
     def test_expense_claims(self):
         login_page = self.navigate_to_login_page()
         dashboard_page = login_page.login(UserEnum.SYSTEM_ADMIN)
@@ -19,6 +23,8 @@ class EmployeeClaimsTests(OrangeHrmTestBase):
 
         self.assertEquals(size, len(header_interface.get_table_result_rows()), 'Incorrect row number in table')
 
+    @allure.story("Expense claims test")
+    @allure.description("Example failure test")
     def test_failure(self):
         login_page = self.navigate_to_login_page()
         dashboard_page = login_page.login(UserEnum.SYSTEM_ADMIN)

@@ -1,5 +1,7 @@
 from typing import cast
 
+import allure
+
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
 from pages_orangehrm.pageobjects.myinfo.MyInfoPage import MyInfoPage
@@ -20,6 +22,8 @@ class MyInfoTests(OrangeHrmTestBase):
 
     header_interface: HeaderInterface
 
+    @allure.story("My info/profile data test")
+    @allure.description("In this case, user info tests in `My info` page")
     def test_my_info(self):
         login_page = self.navigate_to_login_page()
         dashboard_page = login_page.login(UserEnum.ESS_USER)
@@ -28,6 +32,7 @@ class MyInfoTests(OrangeHrmTestBase):
 
         self.compare_test_results()
 
+    @allure.step("Validating results")
     def compare_test_results(self):
         self.assertEqual(self.FIRST_NAME, cast(MyInfoPage, self.header_interface).get_first_name_field_value(),
                          'Incorrect first name value.')

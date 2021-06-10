@@ -9,8 +9,6 @@ from utils.enums.BrowserEnum import BrowserEnum
 class AbstractPage(ABC):
     IMPLICIT_WAIT = 30
 
-    logger = logging.getLogger()
-
     driver: webdriver
     browser: BrowserEnum
 

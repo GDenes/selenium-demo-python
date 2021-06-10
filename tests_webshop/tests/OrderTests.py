@@ -13,6 +13,8 @@ ADD_CART_COLOR_AND_SIZE_02 = 'Orange, S'
     (SizeEnum.M, ColorEnum.BLUE, ADD_CART_COLOR_AND_SIZE_01),
     (SizeEnum.S, ColorEnum.ORANGE, ADD_CART_COLOR_AND_SIZE_02),
 ])
+@allure.epic("Web shop")
+@allure.feature("Order tests")
 class OrderTests(WebShopTestBase):
     ADD_CART_PRODUCT_TITLE_TEXT = 'Faded Short Sleeve T-shirts'
     TOTAL_PRODUCT = '$33.02'

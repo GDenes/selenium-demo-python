@@ -1,5 +1,7 @@
 from typing import cast
 
+import allure
+
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
 from pages_orangehrm.pageobjects.navigation.HeaderInterface import HeaderInterface
@@ -12,6 +14,8 @@ class UserListTests(OrangeHrmTestBase):
 
     headerInterface: HeaderInterface
 
+    @allure.story("Testing table row number")
+    @allure.description("In this case, test user list")
     def test_row_per_page(self):
         login_page = self.navigate_to_login_page()
         dashboard_page = login_page.login(UserEnum.SYSTEM_ADMIN)
