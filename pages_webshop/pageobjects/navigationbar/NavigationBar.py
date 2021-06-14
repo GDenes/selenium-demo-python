@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -33,6 +35,7 @@ class NavigationBar(AbstractPage):
 
     @allure.step("Fill input field with {searchText}")
     def fill_input_field_and_search(self, searchText):
+        logging.info("Searching for `{}`", searchText)
         self.searchField.send_keys(searchText)
         self.searchField.send_keys(Keys.ENTER)
 
@@ -40,6 +43,7 @@ class NavigationBar(AbstractPage):
 
     @allure.step("Move cursor to `Women button` and click to popup")
     def hover_and_click_t_shirt_button(self):
+        logging.info("Navigating to `T-shirts` page")
         action = ActionChains(self.driver)
         action.move_to_element(self.womenButton).perform()
         WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(

@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -33,21 +35,26 @@ class OrderPage(GeneralWebShopPage):
 
     @allure.step("Click to `Proceed to checkout` button")
     def click_proceed_checkout_button(self):
+        logging.info("Clicking to `Proceed to checkout` button")
         self.proceedToCheckoutButton.click()
         return SignInPage(self.driver, self.browser)
 
     @allure.step("Get `Total product` text value")
     def get_total_product_text(self):
+        logging.info("Get `Total product` text value")
         return self.totalProduct.text
 
     @allure.step("Get value of `Total shipping`")
     def get_total_shipping_text(self):
+        logging.info("Get value of `Total shipping`")
         return self.totalShipping.text
 
     @allure.step("Get value of `Total tax`")
     def get_total_tax_text(self):
+        logging.info("Get value of `Total tax`")
         return self.totalTax.text
 
     @allure.step("Get value of `Total price`")
     def get_total_price_text(self):
+        logging.info("Get value of `Total price`")
         return self.totalPrice.text

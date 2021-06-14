@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,10 +25,12 @@ class UploadAndDownloadPage(AbstractPage):
 
     @allure.step("Upload file")
     def upload_sample_file(self, path):
+        logging.info("Uploading file")
         self.uploadFile.send_keys(path)
 
     @allure.step("Get uploaded file path")
     def get_file_path_text(self):
+        logging.info("Checking uploaded file path")
         return WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.filePathLocator))).text
 

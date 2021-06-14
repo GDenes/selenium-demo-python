@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,6 +25,7 @@ class QuickViewDialogBox(AbstractPage):
 
     @allure.step("Get short description of product")
     def get_description_text(self):
+        logging.info("Get short description of product")
         self.driver.switch_to.frame(self.iframe)
 
         return WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(

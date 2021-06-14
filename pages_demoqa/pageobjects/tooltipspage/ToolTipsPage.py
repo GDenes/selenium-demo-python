@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -30,10 +32,12 @@ class ToolTipsPage(AbstractPage):
 
     @allure.step("Move cursor to button and get text of popup")
     def hover_tool_tip_button_and_get_text(self):
+        logging.info("Get popup message from button")
         return self.hover_web_element_get_tool_tip_text(self.toolTipButton)
 
     @allure.step("Move cursor to text field and get text of popup")
     def hover_tool_tip_text_field_and_get_text(self):
+        logging.info("Get popup message from button")
         return self.hover_web_element_get_tool_tip_text(self.toolTipTextField)
 
     def hover_web_element_get_tool_tip_text(self, web_element: webelement):

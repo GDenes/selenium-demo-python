@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -43,26 +45,32 @@ class MyInfoPage(AbstractOrangeHrmPage):
 
     @allure.step("Get fistname value")
     def get_first_name_field_value(self):
+        logging.info("Get firstname value")
         return self.firstNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get middlename value")
     def get_middle_name_value(self):
+        logging.info("Get middlename value")
         return self.middleNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get lastname value")
     def get_last_name_value(self):
+        logging.info("Get lastname value")
         return self.lastNameField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get employee id value")
     def get_employee_id_value(self):
+        logging.info("Get employee id value")
         return self.employeeIdField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get employee id value")
     def get_other_id_value(self):
+        logging.info("Get birthday value")
         return self.otherId.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get birthday value")
     def get_employee_birthday_value(self):
+        logging.info("Get marital status value")
         return self.empBirthdayField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get marital status value")
@@ -71,12 +79,15 @@ class MyInfoPage(AbstractOrangeHrmPage):
 
     @allure.step("Get employee gender value")
     def get_employee_gender_value(self):
+        logging.info("Get employee gender value")
         return self.empGenderField.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get nationality value")
     def get_nationality_code_value(self):
+        logging.info("Get nationality value")
         return self.nationalityCodeInput.get_attribute(self.GET_ATTRIBUTE_VALUE)
 
     @allure.step("Get driver license value")
     def get_driver_license_exp_date_value(self):
+        logging.info("Get driver license value")
         return self.driverLicenseExpDateField.get_attribute(self.GET_ATTRIBUTE_VALUE)

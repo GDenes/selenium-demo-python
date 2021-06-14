@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -30,15 +32,18 @@ class DynamicPropertiesPage(AbstractPage):
 
     @allure.step("Check button is enabled")
     def will_enabled_button(self):
+        logging.info("Checking button is active")
         return WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, self.enableAfterSelector))).is_enabled()
 
     # In return, if no result find method return -1, if have return start index of
     @allure.step("Check button color")
     def color_changed_button(self):
+        logging.info("Checking button color")
         class_name = self.colorChange.get_attribute('class')
         return class_name.find(self.DANGER_CLASS_NAME) != -1
 
     @allure.step("Check visible button")
     def visible_button(self):
+        logging.info("Checking button visibility")
         element = WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.visibleAfterSelector)))
         return element.is_displayed()

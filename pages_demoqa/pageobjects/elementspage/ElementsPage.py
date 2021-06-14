@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -22,10 +24,12 @@ class ElementsPage(AbstractPage):
 
     @allure.step("Go to `Dynamic Properties page`")
     def navigate_to_dynamic_properties_page(self):
+        logging.info("Navigating to `Dynamic properties` page")
         self.dynamicProperties.click()
         return DynamicPropertiesPage(self.driver, self.browser)
 
     @allure.step("Go to `Upload and download page`")
     def navigate_to_upload_and_download_page(self):
+        logging.info("Navigating to `Upload and download` page")
         self.uploadAndDownload.click()
         return UploadAndDownloadPage(self.driver, self.browser)

@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -26,12 +28,17 @@ class LoginPage(AbstractPage):
 
     @allure.step("Login to page {userEnum}")
     def login(self, userEnum: UserEnum):
+        logging.info("Entering login credentials")
         self.clear_input_field()
         self.usernameInputField.send_keys(userEnum.user_name)
         self.passwordInputField.send_keys(userEnum.password)
+
+        logging.info("Clicking to login button")
         self.loginButton.click()
+        
         return DashboardPage(self.driver, self.browser, userEnum)
 
     def clear_input_field(self):
+        logging.info("Clearing credentials input fields")
         self.usernameInputField.clear()
         self.passwordInputField.clear()

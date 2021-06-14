@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -30,8 +32,10 @@ class ExpenseClaimsPage(AbstractOrangeHrmPage):
 
     @allure.step("Get all row from table")
     def get_table_result_rows(self):
+        logging.info("Get all of rows from table")
         return self.tableResultRows
 
     @allure.step("Get total list element from table")
     def get_total_list_element_in_current_page(self):
+        logging.info("Get total number of elements from table")
         return self.totalListElementInCurrentPage.text

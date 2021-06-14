@@ -1,3 +1,4 @@
+import logging
 from abc import ABC
 
 from selenium import webdriver
@@ -23,4 +24,5 @@ class AbstractOrangeHrmPage(AbstractPage, HeaderInterface, ABC):
             self.navigation = AdminNavigationLeftSideBar(driver, browser)
 
     def navigate_to(self, pageEnum: PageEnum):
+        logging.info("Navigate to {}", pageEnum.name)
         return self.navigation.navigate_to(pageEnum)

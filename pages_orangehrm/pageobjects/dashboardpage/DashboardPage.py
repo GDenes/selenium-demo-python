@@ -19,8 +19,5 @@ class DashboardPage(AbstractOrangeHrmPage):
         super().__init__(driver, browser, userEnum)
         self.pageTitle = WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.pageTitleLocator)))
-        # self.pageTitle = driver.find_element(By.CSS_SELECTOR, self.pageTitleLocator)
-
         self.pageContent = WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.pageContentLocator)))
-        # self.pageContent = driver.find_element(By.CSS_SELECTOR, self.pageContentLocator)

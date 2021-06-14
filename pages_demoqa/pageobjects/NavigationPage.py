@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,15 +29,18 @@ class NavigationPage(AbstractPage):
 
     @allure.step("Go to `Elements page`")
     def navigate_to_elements_page(self):
+        logging.info("Navigating to `Elements` page")
         self.elementsButton.click()
         return ElementsPage(self.driver, self.browser)
 
     @allure.step("Go to `Interactive page`")
     def navigate_to_interactions_page(self):
+        logging.info("Navigating to `Interactions` page")
         self.interactionsButton.click()
         return InteractionPage(self.driver, self.browser)
 
     @allure.step("Go to `Widget page`")
     def navigate_to_widget_page(self):
+        logging.info("Navigating to `Widgets` page")
         self.widgetsButton.click()
         return WidgetPage(self.driver, self.browser)

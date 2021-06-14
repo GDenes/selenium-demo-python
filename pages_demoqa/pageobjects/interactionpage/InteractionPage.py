@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -18,5 +20,6 @@ class InteractionPage(AbstractPage):
 
     @allure.step("Go to `Droppable page`")
     def get_droppable_page(self):
+        logging.info("Navigating to `Droppable` page")
         self.droppableMenuItem.click()
         return DroppablePage(self.driver, self.browser)

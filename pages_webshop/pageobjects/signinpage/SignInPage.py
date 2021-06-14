@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -28,8 +30,10 @@ class SignInPage(GeneralWebShopPage):
 
     @allure.step("Get head text of page")
     def get_head_text(self):
+        logging.info("Get head text of page")
         return self.pageHead.text
 
     @allure.step("Get current text of current step")
     def get_current_step_text(self):
+        logging.info("Get current text of current step")
         return self.currentStep.text
