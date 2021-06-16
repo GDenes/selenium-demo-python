@@ -41,9 +41,9 @@ class FadedShortPage(GeneralWebShopPage):
         logging.info("Increasing quantity number with one")
         self.increaseQuantityButton.click()
 
-    @allure.step("Select {sizeText} size")
+    @allure.step("Select {size} size")
     def select_size(self, size: SizeEnum):
-        logging.info("Selecting {} size", size.name)
+        logging.info("Selecting %s size", size)
         select = Select(self.sizeInputField)
         select.select_by_visible_text(size.value)
 
@@ -55,7 +55,7 @@ class FadedShortPage(GeneralWebShopPage):
 
     @allure.step("Select {color} color with click")
     def select_color(self, color: ColorEnum):
-        logging.info("Selecting {} color click", color.name)
+        logging.info("Selecting %s color click", color)
         if color.value == ColorEnum.BLUE.value:
             self.blueColor.click()
         elif color.value == ColorEnum.ORANGE.value:

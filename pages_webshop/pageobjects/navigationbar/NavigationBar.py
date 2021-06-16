@@ -35,7 +35,7 @@ class NavigationBar(AbstractPage):
 
     @allure.step("Fill input field with {searchText}")
     def fill_input_field_and_search(self, searchText):
-        logging.info("Searching for `{}`", searchText)
+        logging.info("Searching for `%s`", searchText)
         self.searchField.send_keys(searchText)
         self.searchField.send_keys(Keys.ENTER)
 

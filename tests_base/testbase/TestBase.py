@@ -10,11 +10,21 @@ class TestBase(unittest.TestCase):
     driver: webdriver
     browser = BrowserEnum.CHROME
 
+    remoteRun: bool = False
+
+    remoteUrl = "http://localhost:4444/wd/hub"
+
     @allure.step("Create WebDriver")
     def setUp(self):
-        self.driver = DriverFactory().create_driver(self.browser)
-        self.driver.maximize_window()
+        if self.remoteRun:
+            self.driver = DriverFactory().create_remote_driver(self.browser, self.remoteUrl)
+        else:
+            self.driver = DriverFactory().create_driver(self.browser)
+
         self.driver.implicitly_wait(10)
+
+    def tearDown(self):
+        self.driver.quit()
 
     def get_driver(self):
         return self.driver

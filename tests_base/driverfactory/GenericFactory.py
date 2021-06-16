@@ -2,5 +2,7 @@ from selenium import webdriver
 
 
 class GenericFactory:
-    def max_window_size(self: webdriver):
-        webdriver.maximize_window()
+
+    @staticmethod
+    def max_window_size(driver: webdriver):
+        driver.maximize_window()
