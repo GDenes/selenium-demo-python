@@ -1,6 +1,7 @@
 from typing import cast
 
 import allure
+import pytest
 
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
@@ -22,6 +23,7 @@ class MyInfoTests(OrangeHrmTestBase):
 
     header_interface: HeaderInterface
 
+    @pytest.mark.skip
     @allure.story("My info/profile data test")
     @allure.description("In this case, user info tests in `My info` page")
     def test_my_info(self):
@@ -32,6 +34,7 @@ class MyInfoTests(OrangeHrmTestBase):
 
         self.compare_test_results()
 
+    @pytest.mark.skip
     @allure.step("Validating results")
     def compare_test_results(self):
         self.assertEqual(self.FIRST_NAME, cast(MyInfoPage, self.header_interface).get_first_name_field_value(),

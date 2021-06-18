@@ -1,6 +1,7 @@
 from typing import cast
 
 import allure
+import pytest
 
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
@@ -14,6 +15,7 @@ class UserListTests(OrangeHrmTestBase):
 
     headerInterface: HeaderInterface
 
+    @pytest.mark.skip
     @allure.story("Testing table row number")
     @allure.description("In this case, test user list")
     def test_row_per_page(self):

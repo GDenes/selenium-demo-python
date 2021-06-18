@@ -1,6 +1,7 @@
 from typing import cast
 
 import allure
+import pytest
 
 from pages_orangehrm.enums.PageEnum import PageEnum
 from pages_orangehrm.enums.UserEnum import UserEnum
@@ -11,6 +12,7 @@ from tests_orangehrm.testbase.OrangeHrmTestBase import OrangeHrmTestBase
 class EmployeeClaimsTests(OrangeHrmTestBase):
     EXPENSE_CLAIMS_ID_TAG_NAME = 'a'
 
+    @pytest.mark.skip
     @allure.story("Expense claims test")
     @allure.description("In this case, test row numbers in table")
     def test_expense_claims(self):
@@ -23,6 +25,7 @@ class EmployeeClaimsTests(OrangeHrmTestBase):
 
         self.assertEquals(size, len(header_interface.get_table_result_rows()), 'Incorrect row number in table')
 
+    @pytest.mark.skip
     @allure.story("Expense claims test")
     @allure.description("Example failure test")
     def test_failure(self):
