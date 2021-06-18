@@ -12,6 +12,33 @@ or
 - Run command `python3 -m venv venv`
 - Run command `pip install -r requirements.txt`
 
+# Run tests
+
+## Local run with pytest
+
+- Test name pattern will be: `Test_<name-of-test>.py` or `test_<name-of-test>.py` 
+
+### Simple run
+
+- In project root directory run next command: `python -m pytest`
+
+### Parallel run
+
+- In project root directory run nex command: `pytest -n 3 --dist loadscope`
+- Settings: 
+  - `-n <number-of-thread>`
+  - `--dist <distmode>`
+    - set mode for distributing tests to exec environments. <br/>
+      **each** - send each test to all available environments. <br/>
+      **load** - load balance by sending any pending test to any available environment. <br/>
+      **loadscope** - load balance by sending pending groups of tests in the same scope to any available environment. <br/>
+      **loadfile** - load balance by sending test grouped by file to any available environment. <br/>
+      (default) no - run tests inprocess, don't distribute.
+
+## Remote run on standalone server
+
+- Selenium standalone server download click [here][selenium-standalone].
+
 &nbsp;
 ### Remote environment scripts
 
@@ -48,3 +75,4 @@ or
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
    [python]: <https://www.python.org/downloads/release/python-395/>
+   [selenium-standalone]: <https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar>
