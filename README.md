@@ -72,7 +72,17 @@ or
       --geckodriver     | path to Firefox web driver        | --geckodriver <path-to-file>/geckodriver.exe | search file based on `gecko*.*` in the same dir
       --remoteip        | Ip of Hub                         | --remoteip http://127.0.0.1:4444             | http://127.0.0.1:4444
 
+# Reporting
+
+## Allure
+### Prerequisite
+- Install allure on your machine [*link to allure official page*][allure-download].
+
+### Generate report
+- Add next flag with parameter to test runner command `--alluredir <path-to-allure-results-folder>` </br>
+- Example: `pytest -n 3 --dist loadscope --alluredir ./allure_results`
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
    [python]: <https://www.python.org/downloads/release/python-395/>
    [selenium-standalone]: <https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar>
+   [allure-download]: <https://docs.qameta.io/allure/>
