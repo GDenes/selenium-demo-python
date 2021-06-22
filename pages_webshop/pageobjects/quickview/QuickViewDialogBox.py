@@ -21,7 +21,8 @@ class QuickViewDialogBox(AbstractPage):
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
         super().__init__(driver, browser)
-        self.iframe = driver.find_element(By.CSS_SELECTOR, self.iframeLocator)
+        self.iframe = WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
+             expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.iframeLocator)))
 
     @allure.step("Get short description of product")
     def get_description_text(self):

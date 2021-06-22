@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from pages_webshop.pageobjects.common.GeneralWebShopPage import GeneralWebShopPage
 from pages_webshop.pageobjects.quickview.QuickViewDialogBox import QuickViewDialogBox
@@ -12,7 +14,8 @@ class SearchPage(GeneralWebShopPage):
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
         super().__init__(driver, browser)
-        self.firstElement = driver.find_element(By.CSS_SELECTOR, self.firstElementLocator)
+        self.firstElement = WebDriverWait( self.driver, self.IMPLICIT_WAIT ).until(
+            expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.firstElementLocator)))
 
     def clickFirstElement(self):
         self.firstElement.click()

@@ -3,6 +3,8 @@ import logging
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from pages_webshop.pageobjects.common.GeneralWebShopPage import GeneralWebShopPage
 from utils.enums.BrowserEnum import BrowserEnum
@@ -23,7 +25,8 @@ class SignInPage(GeneralWebShopPage):
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
         super().__init__(driver, browser)
-        self.pageHead = driver.find_element(By.CSS_SELECTOR, self.pageHeadLocator)
+        self.pageHead = WebDriverWait( self.driver, self.IMPLICIT_WAIT ).until(
+            expected_conditions.visibility_of_element_located( (By.CSS_SELECTOR, self.pageHeadLocator)))
         self.createAccountButton = driver.find_element(By.CSS_SELECTOR, self.createAccountButtonLocator)
         self.signInButton = driver.find_element(By.CSS_SELECTOR, self.signInButtonLocator)
         self.currentStep = driver.find_element(By.CSS_SELECTOR, self.currentStepLocator)

@@ -13,14 +13,17 @@ from utils.enums.BrowserEnum import BrowserEnum
 class UploadAndDownloadPage(AbstractPage):
     IMPLICIT_WAIT = 2
 
+    downloadButtonLocator = '#downloadButton'
+
     uploadFileLocator = '#uploadFile'
-    uploadFile = None
 
     filePathLocator = '#uploadedFilePath'
     filePath: None
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
         super().__init__(driver, browser)
+        WebDriverWait( self.driver, self.IMPLICIT_WAIT ).until(
+            expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, self.downloadButtonLocator)))
         self.uploadFile = driver.find_element(By.CSS_SELECTOR, self.uploadFileLocator)
 
     @allure.step("Upload file")

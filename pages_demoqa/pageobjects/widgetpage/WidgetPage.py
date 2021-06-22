@@ -29,7 +29,7 @@ class WidgetPage(AbstractPage):
     @allure.step("Go to `Tool Tips page`")
     def navigate_to_tool_tips_page(self):
         logging.info("Navigating to `Tool Tips` page")
-        self.body.send_keys(Keys.PAGE_DOWN)
+        self.driver.execute_script( "window.scrollTo(0,document.body.scrollHeight)" )
         WebDriverWait(self.driver, self.IMPLICIT_WAIT).until(
             expected_conditions.element_to_be_clickable((By.XPATH, self.toolTipsMenuItemLocator))).click()
         return ToolTipsPage(self.driver, self.browser)

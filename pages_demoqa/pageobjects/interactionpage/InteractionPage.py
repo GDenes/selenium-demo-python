@@ -1,4 +1,5 @@
 import logging
+import time
 
 import allure
 from selenium import webdriver
@@ -9,17 +10,17 @@ from pages_demoqa.pageobjects.droppablepage.DroppablePage import DroppablePage
 from utils.enums.BrowserEnum import BrowserEnum
 
 
-class InteractionPage(AbstractPage):
-
+class InteractionPage( AbstractPage ):
     droppableMenuItemLocator = '//span[text()="Droppable"]'
     droppableMenuItem = None
 
     def __init__(self, driver: webdriver, browser: BrowserEnum):
-        super().__init__(driver, browser)
-        self.droppableMenuItem = driver.find_element(By.XPATH, self.droppableMenuItemLocator)
+        super().__init__( driver, browser )
+        self.droppableMenuItem = driver.find_element( By.XPATH, self.droppableMenuItemLocator )
 
-    @allure.step("Go to `Droppable page`")
+    @allure.step( "Go to `Droppable page`" )
     def get_droppable_page(self):
-        logging.info("Navigating to `Droppable` page")
+        logging.info( "Navigating to `Droppable` page" )
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
         self.droppableMenuItem.click()
-        return DroppablePage(self.driver, self.browser)
+        return DroppablePage( self.driver, self.browser)

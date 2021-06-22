@@ -3,6 +3,8 @@ import logging
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from pages_base.pageobjects.AbstractPage import AbstractPage
 from pages_demoqa.pageobjects.dynamicpropertiespage.DynamicPropertiesPage import DynamicPropertiesPage
@@ -25,6 +27,7 @@ class ElementsPage(AbstractPage):
     @allure.step("Go to `Dynamic Properties page`")
     def navigate_to_dynamic_properties_page(self):
         logging.info("Navigating to `Dynamic properties` page")
+        self.driver.execute_script( "window.scrollTo(0,document.body.scrollHeight)" )
         self.dynamicProperties.click()
         return DynamicPropertiesPage(self.driver, self.browser)
 

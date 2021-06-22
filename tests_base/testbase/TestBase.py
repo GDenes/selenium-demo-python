@@ -1,3 +1,4 @@
+import logging
 import unittest
 
 import allure
@@ -10,15 +11,17 @@ class TestBase(unittest.TestCase):
     driver: webdriver
     browser = BrowserEnum.CHROME
 
-    remoteRun: bool = False
+    remoteRun: bool = True
 
     remoteUrl = "http://localhost:4444/wd/hub"
 
     @allure.step("Create WebDriver")
     def setUp(self):
         if self.remoteRun:
+            logging.info('Remote web driver mode')
             self.driver = DriverFactory().create_remote_driver(self.browser, self.remoteUrl)
         else:
+            logging.info('')
             self.driver = DriverFactory().create_driver(self.browser)
 
         self.driver.implicitly_wait(10)

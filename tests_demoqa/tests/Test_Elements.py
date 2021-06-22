@@ -1,5 +1,6 @@
 import os
-
+import time
+from os.path import normpath, join
 import allure
 
 from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
@@ -9,7 +10,7 @@ from tests_demoqa.testbase.DemoQaTestBase import DemoQaTestBase
 @allure.feature("Elements tests")
 class ElementsTests(DemoQaTestBase):
     UPLOADED_FILE_PATH = "C:\\fakepath\\sampleFile.jpeg"
-    LOCAL_FILE_PATH = "sampleFile.jpeg"
+    LOCAL_FILE_PATH = 'sampleFile.jpeg'
 
     @allure.description("In this case, test dynamically changes on elements")
     @allure.story("Dynamically elements change")
@@ -28,7 +29,10 @@ class ElementsTests(DemoQaTestBase):
         navigation_page = super().navigate_to_tools_qa_page()
         elements_page = navigation_page.navigate_to_elements_page()
         upload_and_download_page = elements_page.navigate_to_upload_and_download_page()
-        upload_and_download_page.upload_sample_file(os.path.abspath(self.LOCAL_FILE_PATH))
+        # print(os.path.abspath(self.LOCAL_FILE_PATH))
+        print(normpath(join(os.getcwd(), self.LOCAL_FILE_PATH)))
+
+        upload_and_download_page.upload_sample_file(normpath(join(os.getcwd(), self.LOCAL_FILE_PATH)))
 
         self.assertEquals(self.UPLOADED_FILE_PATH, upload_and_download_page.get_file_path_text(),
                           'The file has not been uploaded')
